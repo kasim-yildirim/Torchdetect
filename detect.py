@@ -21,7 +21,6 @@ def detect(image, model, threshold=0.5):
         class_names = prediction_class[:prediction_thresh + 1]
         labels = '%{} {}'.format(percent_score, class_names[i])
         x, y, w, h = box[0][0], box[0][1], box[1][0] - box[0][0], box[1][1] - box[0][1]
-
         cv2.rectangle(image, (x, y), (x + w, y + h), (0, 255, 0), 2)
         cv2.putText(image, labels, (x, y), cv2.FONT_HERSHEY_SIMPLEX, 1, (0, 0, 255), 2)
     cv2.imshow('image', image)
