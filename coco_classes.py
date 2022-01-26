@@ -20,37 +20,32 @@ classes = (
 
 def read_image(image, img_size=416):
     if type(image) == str:
-        img = cv2.imread(image)
-        img = cv2.cvtColor(img, cv2.COLOR_BGR2RGB)
-        img = cv2.resize(img, (img_size, img_size))
+        image = cv2.imread(image)
+        image = cv2.cvtColor(image, cv2.COLOR_BGR2RGB)
 
     elif type(image) == bytes:
         nparr = np.frombuffer(image, np.uint8)
-        img = cv2.imdecode(nparr, cv2.IMREAD_COLOR)
-        img = cv2.cvtColor(img, cv2.COLOR_BGR2RGB)
-        img = cv2.resize(img, (img_size, img_size))
+        image = cv2.imdecode(nparr, cv2.IMREAD_COLOR)
+        image = cv2.cvtColor(image, cv2.COLOR_BGR2RGB)
 
     elif type(image) == np.ndarray:
         if len(image.shape) == 2:  # grayscale
-            img = cv2.cvtColor(image, cv2.COLOR_GRAY2RGB)
-            img = cv2.resize(img, (img_size, img_size))
+            image = cv2.cvtColor(image, cv2.COLOR_GRAY2RGB)
 
         elif len(image.shape) == 3 and image.shape[2] == 3:
-            img = image
-            img = cv2.resize(img, (img_size, img_size))
+            image = image
 
         elif len(image.shape) == 3 and image.shape[2] == 4:  # RGBAscale
-            img = image[:, :, :3]
-            img = cv2.resize(img, (img_size, img_size))
+            image = image[:, :, :3]
 
-    img = numpy_to_torch(img)
+    image = cv2.resize(image, (img_size, img_size))
+    image = numpy_to_torch(image)
+    return image
 
-    return img
 
-
-def numpy_to_torch(img):
-    img = img.transpose((2, 0, 1))
-    img = torch.from_numpy(img).float()
-    if img.max() > 1:
-        img /= 255
-    return img
+def numpy_to_torch(image):
+    image = image.transpose((2, 0, 1))
+    image = torch.from_numpy(image).float()
+    if image.max() > 1:
+        image /= 255
+    return image
