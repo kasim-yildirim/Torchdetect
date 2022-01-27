@@ -1,24 +1,27 @@
 <div align="center">
-  <img height="350" src="/images/pytorch.png"/>
 <h1>
-  Torchvision Object Detection
+  Torchvision Kullanarak Object Detection Uygulaması Yap
 </h1>
+  <img height="350" src="/images/pytorch.png"/>
 </div>
-  Reponun hazırlanma amacı Torchvision kütüphanesi kullanarak object detection işleminin yapılmasıdır.
+
 ### Verinin Test Edilmesi
-detect.py içerisinde bulunan aşağıdaki kod bloğu üzerinden;
-  -Özel .pth dosyanızın yolunu belirtin.
-  -Test edilecek görüntünün yolunu belirtin.
-  -İmage Size & threshold değerlerinizi belirtin.
+
+detect.py dosyasında değişiklik yapacağınız kod blokları:
+
+  -Özel .pth dosyanızın yolunu belirtin.<br/>
+  -Test edilecek görüntünün yolunu belirtin.<br/>
+  -İmage Size & threshold değerlerinizi belirtin.<br/>
+  
 Bunlara ek olarak coco_classes.py dosyası içerisinde sınıf etiketlerinin belirtilmesi gerekmektedir.
 ```
 if __name__ == '__main__':
-    # torch model load
-    model = torchvision.models.detection.fasterrcnn_resnet50_fpn(pretrained=True) # .pth dosyasının orijinal modeli
-    model.load_state_dict(torch.load('model.pth')) # özel .pth dosyasınızı burada yükleyin.
+    model = torchvision.models.detection.fasterrcnn_resnet50_fpn(pretrained=True) 
+    model.load_state_dict(torch.load('model.pth')) # custom model path(.pth)
     model.eval()
-    image = read_image("images/1.jpg", 512)
+    image = read_image("images/1.jpg", 512) # image path
     detect(image, model, threshold=0.5)
 ```
 
+<img height="600" src="/outputs/uav.png"/>
 
