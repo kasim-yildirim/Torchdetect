@@ -1,6 +1,7 @@
 from coco_classes import classes, read_image
 import cv2
 import torchvision
+import torch
 
 
 def detect(image, model, threshold=0.5):
@@ -29,7 +30,9 @@ def detect(image, model, threshold=0.5):
 
 
 if __name__ == '__main__':
-    model = torchvision.models.detection.fasterrcnn_resnet50_fpn(pretrained=True)
+    # torch model load
+    model = torchvision.models.detection.fasterrcnn_resnet50_fpn(pretrained=True) # .pth dosyasının orijinal modeli
+    model.load_state_dict(torch.load('model.pth')) # kendi .pth dosyasını buraya yükleyin.
     model.eval()
     image = read_image("images/1.jpg", 512)
     detect(image, model, threshold=0.5)
