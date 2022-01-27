@@ -2,7 +2,7 @@
 <h1>
   Torchvision Kullanarak Object Detection Uygulaması Yap
 </h1>
-  <img height="350" src="/images/pytorch.png"/>
+  <img height="350" src="doc/pytorch.png"/>
 </div>
 
 ### Verinin Test Edilmesi
@@ -23,5 +23,5 @@ if __name__ == '__main__':
     detect(image, model, threshold=0.5)
 ```
 
-<img height="600" src="/outputs/uav.png"/>
+<img height="600" src="outputs/uav.png"/>
 
