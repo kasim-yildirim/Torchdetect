@@ -1,6 +1,6 @@
 <div align="center">
 <h1>
-  Torchvision Kullanarak Object Detection Uygulaması Yap
+  Torchvision Kullanarak Detection Uygulaması Yap
 </h1>
   <img height="350" src="doc/pytorch.png"/>
 </div>
