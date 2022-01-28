@@ -13,7 +13,7 @@ detect.py dosyasında değişiklik yapacağınız kod blokları:
   -Test edilecek görüntünün yolunu belirtin.<br/>
   -İmage Size & threshold değerlerinizi belirtin.<br/>
   
-Bunlara ek olarak coco_classes.py dosyası içerisinde sınıf etiketlerinin belirtilmesi gerekmektedir.
+Bunlara ek olarak datasets.py dosyası içerisinde sınıf etiketlerinin belirtilmesi gerekmektedir.
 ```
 if __name__ == '__main__':
     model = torchvision.models.detection.fasterrcnn_resnet50_fpn(pretrained=True) 
