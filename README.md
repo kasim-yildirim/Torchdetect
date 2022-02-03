@@ -23,7 +23,7 @@ if __name__ == '__main__':
     detect(image, model, threshold=0.5)
 ```
 
-<img height="600" src="outputs/mix_out.png"/>
-<img height="600" src="outputs/p&b.png"/>
-<img height="600" src="outputs/bird_out.png"/>
+<img height="600" src="doc/mix_out.png"/>
+<img height="600" src="doc/p&b.png"/>
+<img height="600" src="doc/bird_out.png"/>
 
