@@ -22,11 +22,3 @@ def download(url: str, save_path: str):
     create_dir(os.path.dirname(save_path))
     # download file
     gdown.download(url, save_path, quiet=False)
-
-
-"""
-url = "https://download.pytorch.org/models/retinanet_resnet50_fpn_coco-eeacb38b.pth"
-url = "https://download.pytorch.org/models/fasterrcnn_resnet50_fpn_coco-258fb6c6.pth"
-save_path = "../models/retinanet_resnet50_fpn_coco.pth"
-download(url, save_path)
-"""
