@@ -59,19 +59,19 @@ def segmentations_predictions(img_path, confidence=0.5, rect_th=2, text_size=2, 
 
 if __name__ == '__main__':
     """
+    #RetinaNet:
     from utils.file_utils import download
-    RetinaNet:
     url = "https://download.pytorch.org/models/retinanet_resnet50_fpn_coco-eeacb38b.pth"
     save_path = "../models/retinanet_resnet50_fpn_coco.pth"
     download(url, save_path)
     
-    Faster-RCNN:
+    #Faster-RCNN:
     from utils.file_utils import download
     url = "https://download.pytorch.org/models/fasterrcnn_resnet50_fpn_coco-258fb6c6.pth"
     save_path = "../models/retinanet_resnet50_fpn_coco.pth"
     download(url, save_path)
     
-    Mask-RCNN:
+    #Mask-RCNN:
     from utils.file_utils import download
     url = "https://download.pytorch.org/models/maskrcnn_resnet50_fpn_coco-bf2d0c1e.pth"
     save_path = "../models/maskrcnn_resnet50_fpn_coco.pth"
